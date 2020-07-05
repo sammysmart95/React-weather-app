@@ -110,74 +110,10 @@
             }
           }
         }
-        .third {
-          .temp {
-            display: flex;
-            flex-direction: row;
-            p {
-              margin: 0;
-              padding: 10px 0;
-            }
-            .feels-like {
-              color: rgba(255, 255, 255, 0.5);
-              font-size: 15px;
-              padding: 15px 0 0 0;
-              margin-left: 8px;
-            }
-          }
-        }
-        .forth {
-          .temp {
-            display: flex;
-            flex-direction: row;
-            p {
-              margin: 0;
-              padding: 10px 0;
-            }
-            .feels-like {
-              color: rgba(255, 255, 255, 0.5);
-              font-size: 15px;
-              padding: 15px 0 0 0;
-              margin-left: 8px;
-            }
-          }
-        }
-        .fifth {
-          .temp {
-            display: flex;
-            flex-direction: row;
-            p {
-              margin: 0;
-              padding: 10px 0;
-            }
-            .feels-like {
-              color: rgba(255, 255, 255, 0.5);
-              font-size: 15px;
-              padding: 15px 0 0 0;
-              margin-left: 8px;
-            }
-          }
-        }
-        .sixth {
-          .temp {
-            display: flex;
-            flex-direction: row;
-            p {
-              margin: 0;
-              padding: 10px 0;
-            }
-            .feels-like {
-              color: rgba(255, 255, 255, 0.5);
-              font-size: 15px;
-              padding: 15px 0 0 0;
-              margin-left: 8px;
-            }
-          }
-        }
       }
     }
     .otherD {
-      display: none;
+      display: flex;
       flex-direction: row;
       color: #fff;
       justify-content: center;
@@ -202,113 +138,13 @@
       }
     }
     .forecast2 {
-      display: none;
-      flex-direction: row;
-      color: #fff;
-      justify-content: center;
-      padding: 0 20px 40px 20px;
-      font-size: 20px;
-      .second {
-        margin: 0 20px;
-        .temp {
-          display: flex;
-          flex-direction: row;
-          p {
-            margin: 0;
-            padding: 10px 0;
-          }
-          .feels-like {
-            color: rgba(255, 255, 255, 0.5);
-            font-size: 15px;
-            padding: 15px 0 0 0;
-            margin-left: 8px;
-          }
-        }
-      }
-    }
-    .forecast3 {
-      display: none;
-      flex-direction: row;
-      color: #fff;
-      justify-content: center;
-      padding: 0 20px 40px 20px;
-      font-size: 20px;
-      .third {
-        margin: 0 20px;
-        .temp {
-          display: flex;
-          flex-direction: row;
-          p {
-            margin: 0;
-            padding: 10px 0;
-          }
-          .feels-like {
-            color: rgba(255, 255, 255, 0.5);
-            font-size: 15px;
-            padding: 15px 0 0 0;
-            margin-left: 8px;
-          }
-        }
-      }
-    }
-    .forecast4 {
-      display: none;
-      flex-direction: row;
-      color: #fff;
-      justify-content: center;
-      padding: 0 20px 40px 20px;
-      font-size: 20px;
-      .forth {
-        margin: 0 20px;
-        .temp {
-          display: flex;
-          flex-direction: row;
-          p {
-            margin: 0;
-            padding: 10px 0;
-          }
-          .feels-like {
-            color: rgba(255, 255, 255, 0.5);
-            font-size: 15px;
-            padding: 15px 0 0 0;
-            margin-left: 8px;
-          }
-        }
-      }
-    }
-    .forecast5 {
-      display: none;
-      flex-direction: row;
-      color: #fff;
-      justify-content: center;
-      padding: 0 20px 40px 20px;
-      font-size: 20px;
-      .fifth {
-        margin: 0 20px;
-        .temp {
-          display: flex;
-          flex-direction: row;
-          p {
-            margin: 0;
-            padding: 10px 0;
-          }
-          .feels-like {
-            color: rgba(255, 255, 255, 0.5);
-            font-size: 15px;
-            padding: 15px 0 0 0;
-            margin-left: 8px;
-          }
-        }
-      }
-    }
-    .forecast6 {
       display: flex;
       flex-direction: row;
       color: #fff;
       justify-content: center;
       padding: 0 20px 40px 20px;
       font-size: 20px;
-      .sixth {
+      .second {
         margin: 0 20px;
         .temp {
           display: flex;

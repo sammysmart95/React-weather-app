@@ -21,8 +21,6 @@ const App = () => {
     outcome: {},
   });
 
-  const [showIndex, setShowIndex] = useState(null);
-
   const handleInput = (e) => {
     setSearchValue(e.target.value);
   };
@@ -74,14 +72,6 @@ const App = () => {
     fetchForecast(e);
   };
 
-  // const getTime = (t) => {
-  //   let hour = t.getHours();
-  //   let mins = t.getMinutes();
-  //   let sec = t.getSeconds();
-
-  //   return `${hour} : ${mins} : ${sec}`;
-  // };
-
   return (
     <div className="app">
       <header>
@@ -93,15 +83,11 @@ const App = () => {
         />
       </header>
       <main>
-        {/* <div className="time">{getTime(new Date())}</div> */}
-        <Time className="time" />
+        <div className="time">
+          <Time />
+        </div>
         {typeof weather.results.main != "undefined" ? (
-          <Location
-            results={weather.results}
-            outcome={forecast.outcome}
-            setShowIndex={setShowIndex}
-            showIndex={showIndex}
-          />
+          <Location results={weather.results} outcome={forecast.outcome} />
         ) : (
           ""
         )}

@@ -11,5 +11,5 @@ export default function TimeComponent() {
         }, 1000);
         return () => clearInterval(intervalID);
     }, []);
-    return <span>{dayjs(presentTime).format("ddd, MMM DD, h:mm:ss a")}</span>;
+    return <span>{dayjs(presentTime).format("h:mm:ss a")}</span>;
 }

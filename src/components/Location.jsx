@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react'
-
 import Animate from './Animate'
+import Forecast from './Forecast'
 
-const Location = ({ results, outcome, setShowIndex, showIndex }) => {
+const Location = ({ results, outcome }) => {
 
 
     const [todayForecast, setTodatForecast] = useState(null)
     const [state, setState] = useState(null)
+    const [showForecast, setShowForecast] = useState(null);
 
 
     const dateBuilder = (d) => {
@@ -38,12 +39,11 @@ const Location = ({ results, outcome, setShowIndex, showIndex }) => {
 
     useEffect(() => {
         let todayWeather = outcome?.list?.filter(data => new Date(data?.dt_txt).getDate() === new Date().getDate())
-
         setTodatForecast(todayWeather)
+
         let newArray = outcome?.list?.filter(data => new Date(data?.dt_txt).getDate() > new Date().getDate())
         if (Array.isArray(newArray)) {
             setState(chunkArrayInGroups(newArray, 8))
-            // console.log(chunkArrayInGroups(newArray, 8));
         }
     }, [outcome])
 
@@ -60,8 +60,6 @@ const Location = ({ results, outcome, setShowIndex, showIndex }) => {
         }
         return newArr;
     }
-
-
 
     return (
         <section className='location-weather'>
@@ -95,203 +93,51 @@ const Location = ({ results, outcome, setShowIndex, showIndex }) => {
             </div>
             <div className="future-weather">
                 <div className='future'>
-                    <div className='forcast' >
-                        {todayForecast && todayForecast.length ? (
-                            <div className='days'>
-                                <div >
-                                    {dayBuilder(new Date(todayForecast[0].dt_txt))} {new Date(todayForecast[0].dt_txt).getDate()}
-                                </div>
-                                <div className='temp'>
-                                    <p> <Animate value={Math.round((todayForecast[0].main.temp) - 273)} />&#176;</p>
-                                    <p className='feels-like'> <Animate value={Math.round((todayForecast[0].main.feels_like) - 273)} />&#176;</p>
-                                </div>
-                                <div>
-                                    {todayForecast[0].weather[0].main}
-                                </div>
-                            </div>
-                        ) : (false)}
-                    </div>
-                    {state && state.length ? (
-                        <div className='forecastD'>
-                            <div className='forcast'>
-                                <div className='second'>
+                    {todayForecast && todayForecast.length ? (
+                        <div className='forcast' >
+                            {todayForecast.map((data, index) => (
+                                <div key={index} className='days' onClick={() => setShowForecast(todayForecast)}>
                                     <div >
-                                        {dayBuilder(new Date(state[0][0].dt_txt))} {new Date(state[0][0].dt_txt).getDate()}
+                                        {dayBuilder(new Date(data.dt_txt))} {new Date(data.dt_txt).getDate()}
                                     </div>
                                     <div className='temp'>
-                                        <p> <Animate value={Math.round((state[0][0].main.temp) - 273)} />&#176;</p>
-                                        <p className='feels-like'> <Animate value={Math.round((state[0][0].main.feels_like) - 273)} />&#176;</p>
+                                        <p> <Animate value={Math.round((data.main.temp) - 273)} />&#176;</p>
+                                        <p className='feels-like'> <Animate value={Math.round((data.main.feels_like) - 273)} />&#176;</p>
                                     </div>
                                     <div>
-                                        {state[0][0].weather[0].main}
-                                    </div>
-
-                                </div>
-                            </div>
-                            <div className='forcast'>
-                                <div className='third'>
-                                    <div >
-                                        {dayBuilder(new Date(state[1][0].dt_txt))} {new Date(state[1][0].dt_txt).getDate()}
-                                    </div>
-                                    <div className='temp'>
-                                        <p> <Animate value={Math.round((state[1][0].main.temp) - 273)} />&#176;</p>
-                                        <p className='feels-like'> <Animate value={Math.round((state[1][0].main.feels_like) - 273)} />&#176;</p>
-                                    </div>
-                                    <div>
-                                        {state[1][0].weather[0].main}
+                                        {data.weather[0].main}
                                     </div>
                                 </div>
-                            </div>
-                            <div className='forcast'>
-                                <div className='forth'>
-                                    <div >
-                                        {dayBuilder(new Date(state[2][0].dt_txt))} {new Date(state[2][0].dt_txt).getDate()}
-                                    </div>
-                                    <div className='temp'>
-                                        <p> <Animate value={Math.round((state[2][0].main.temp) - 273)} />&#176;</p>
-                                        <p className='feels-like'> <Animate value={Math.round((state[2][0].main.feels_like) - 273)} />&#176;</p>
-                                    </div>
-                                    <div>
-                                        {state[2][0].weather[0].main}
-                                    </div>
-                                </div>
-                            </div>
-                            <div className='forcast'>
-                                <div className='fifth'>
-                                    <div >
-                                        {dayBuilder(new Date(state[3][0].dt_txt))} {new Date(state[3][0].dt_txt).getDate()}
-                                    </div>
-                                    <div className='temp'>
-                                        <p> <Animate value={Math.round((state[3][0].main.temp) - 273)} />&#176;</p>
-                                        <p className='feels-like'> <Animate value={Math.round((state[3][0].main.feels_like) - 273)} />&#176;</p>
-                                    </div>
-                                    <div>
-                                        {state[3][0].weather[0].main}
-                                    </div>
-                                </div>
-                            </div>
-                            <div className='forcast'>
-                                <div className='sixth'>
-                                    <div >
-                                        {dayBuilder(new Date(state[4][0].dt_txt))} {new Date(state[4][0].dt_txt).getDate()}
-                                    </div>
-                                    <div className='temp'>
-                                        <p> <Animate value={Math.round((state[4][0].main.temp) - 273)} />&#176;</p>
-                                        <p className='feels-like'> <Animate value={Math.round((state[4][0].main.feels_like) - 273)} />&#176;</p>
-                                    </div>
-                                    <div>
-                                        {state[4][0].weather[0].main}
-                                    </div>
-                                </div>
-                            </div>
+                            ))}
                         </div>
-                    ) : (false)}
+                    ) : (null)}
+                    {state && state.length ? (
+                        <div className='forecastD' >
+                            {state.map((data, index) => (
+                                <div key={index} className='forcast' onClick={() => setShowForecast(data)}>
+                                    <div className='second'>
+                                        <div >
+                                            {dayBuilder(new Date(data[0].dt_txt))} {new Date(data[0].dt_txt).getDate()}
+                                        </div>
+                                        <div className='temp'>
+                                            <p> <Animate value={Math.round((data[0].main.temp) - 273)} />&#176;</p>
+                                            <p className='feels-like'> <Animate value={Math.round((data[0].main.feels_like) - 273)} />&#176;</p>
+                                        </div>
+                                        <div>
+                                            {data[0].weather[0].main}
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    ) : (null)}
                 </div>
                 {/*========= Childern forecast ======*/}
-                {todayForecast && todayForecast.length ? (
-                    <div className={`otherD `}>
-                        {todayForecast.map((data, i) => (
-                            <div key={i} className='first'>
-                                <div >
-                                    {dayBuilder(new Date(data.dt_txt))} {new Date(data.dt_txt).getDate()}
-                                </div>
-                                <div className='temp'>
-                                    <p> <Animate value={Math.round((data.main.temp) - 273)} />&#176;</p>
-                                    <p className='feels-like'> <Animate value={Math.round((data.main.feels_like) - 273)} />&#176;</p>
-                                </div>
-                                <div>
-                                    {data.weather[0].main}
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                ) : (false)}
-                {state && state.length ? (
-                    <div>
-                        <div className='forecast2'>
-                            {state[0].map((data, index) => (
-                                <div key={index} className='second'>
-                                    <div >
-                                        {dayBuilder(new Date(data.dt_txt))} {new Date(data.dt_txt).getDate()}
-                                    </div>
-                                    <div className='temp'>
-                                        <p> <Animate value={Math.round((data.main.temp) - 273)} />&#176;</p>
-                                        <p className='feels-like'> <Animate value={Math.round((data.main.feels_like) - 273)} />&#176;</p>
-                                    </div>
-                                    <div>
-                                        {data.weather[0].main}
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                        <div className='forecast3'>
-                            {state[1].map((data, index) => (
-                                <div key={index} className='third'>
-                                    <div >
-                                        {dayBuilder(new Date(data.dt_txt))} {new Date(data.dt_txt).getDate()}
-                                    </div>
-                                    <div className='temp'>
-                                        <p> <Animate value={Math.round((data.main.temp) - 273)} />&#176;</p>
-                                        <p className='feels-like'> <Animate value={Math.round((data.main.feels_like) - 273)} />&#176;</p>
-                                    </div>
-                                    <div>
-                                        {data.weather[0].main}
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                        <div className='forecast4'>
-                            {state[2].map((data, index) => (
-                                <div key={index} className='forth'>
-                                    <div >
-                                        {dayBuilder(new Date(data.dt_txt))} {new Date(data.dt_txt).getDate()}
-                                    </div>
-                                    <div className='temp'>
-                                        <p> <Animate value={Math.round((data.main.temp) - 273)} />&#176;</p>
-                                        <p className='feels-like'> <Animate value={Math.round((data.main.feels_like) - 273)} />&#176;</p>
-                                    </div>
-                                    <div>
-                                        {data.weather[0].main}
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                        <div className='forecast5'>
-                            {state[3].map((data, index) => (
-                                <div key={index} className='fifth'>
-                                    <div >
-                                        {dayBuilder(new Date(data.dt_txt))} {new Date(data.dt_txt).getDate()}
-                                    </div>
-                                    <div className='temp'>
-                                        <p> <Animate value={Math.round((data.main.temp) - 273)} />&#176;</p>
-                                        <p className='feels-like'> <Animate value={Math.round((data.main.feels_like) - 273)} />&#176;</p>
-                                    </div>
-                                    <div>
-                                        {data.weather[0].main}
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                        <div className='forecast6'>
-                            {state[4].map((data, index) => (
-                                <div key={index} className='sixth'>
-                                    <div >
-                                        {dayBuilder(new Date(data.dt_txt))} {new Date(data.dt_txt).getDate()}
-                                    </div>
-                                    <div className='temp'>
-                                        <p> <Animate value={Math.round((data.main.temp) - 273)} />&#176;</p>
-                                        <p className='feels-like'> <Animate value={Math.round((data.main.feels_like) - 273)} />&#176;</p>
-                                    </div>
-                                    <div>
-                                        {data.weather[0].main}
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                ) : (false)}
+                <Forecast showForecast={showForecast} />
+
+
             </div>
-        </section>
+        </section >
     )
 }
 
