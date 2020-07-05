@@ -1,0 +1,330 @@
+.location-weather {
+  .current-weather {
+    color: #fff;
+    text-align: center;
+    .location {
+      .location-name {
+        font-size: 58px;
+        font-weight: 400;
+      }
+      .location-date {
+        font-size: 25px;
+        font-weight: 200;
+      }
+    }
+    .weather {
+      .temperature {
+        display: flex;
+        flex-direction: row;
+        text-align: center;
+        justify-content: center;
+        .temp {
+          font-size: 100px;
+          font-weight: 400;
+        }
+        .celsius {
+          font-size: 30px;
+          padding: 30px 10px;
+          transition: 0.4s ease-out;
+        }
+        .fahrenheit {
+          font-size: 30px;
+          padding: 30px 10px;
+          transition: 0.4s ease-out;
+        }
+      }
+      .weath {
+        font-size: 25px;
+        font-weight: 400;
+
+        margin-top: -50;
+      }
+    }
+    .others {
+      .details {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin: 5px 0;
+        padding: 0;
+        font-size: 20px;
+        .text {
+          margin: 5px 10px;
+        }
+      }
+    }
+  }
+  .future-weather {
+    .future {
+      display: flex;
+      flex-direction: row;
+      margin: 0;
+      padding: 40px 20px 10px;
+      color: #fff;
+      justify-content: center;
+      .forcast {
+        margin: 0 50px;
+        padding: 30px 20px;
+        border-radius: 15px;
+        cursor: pointer;
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.2);
+        }
+        .days {
+          font-size: 25px;
+          font-weight: 400;
+          .temp {
+            display: flex;
+            flex-direction: row;
+            p {
+              margin: 0;
+              padding: 10px 0;
+            }
+            .feels-like {
+              color: rgba(255, 255, 255, 0.5);
+              font-size: 15px;
+              padding: 15px 0 0 0;
+              margin-left: 8px;
+            }
+          }
+        }
+      }
+      .forecastD {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        font-size: 25px;
+        .second {
+          .temp {
+            display: flex;
+            flex-direction: row;
+            p {
+              margin: 0;
+              padding: 10px 0;
+            }
+            .feels-like {
+              color: rgba(255, 255, 255, 0.5);
+              font-size: 15px;
+              padding: 15px 0 0 0;
+              margin-left: 8px;
+            }
+          }
+        }
+        .third {
+          .temp {
+            display: flex;
+            flex-direction: row;
+            p {
+              margin: 0;
+              padding: 10px 0;
+            }
+            .feels-like {
+              color: rgba(255, 255, 255, 0.5);
+              font-size: 15px;
+              padding: 15px 0 0 0;
+              margin-left: 8px;
+            }
+          }
+        }
+        .forth {
+          .temp {
+            display: flex;
+            flex-direction: row;
+            p {
+              margin: 0;
+              padding: 10px 0;
+            }
+            .feels-like {
+              color: rgba(255, 255, 255, 0.5);
+              font-size: 15px;
+              padding: 15px 0 0 0;
+              margin-left: 8px;
+            }
+          }
+        }
+        .fifth {
+          .temp {
+            display: flex;
+            flex-direction: row;
+            p {
+              margin: 0;
+              padding: 10px 0;
+            }
+            .feels-like {
+              color: rgba(255, 255, 255, 0.5);
+              font-size: 15px;
+              padding: 15px 0 0 0;
+              margin-left: 8px;
+            }
+          }
+        }
+        .sixth {
+          .temp {
+            display: flex;
+            flex-direction: row;
+            p {
+              margin: 0;
+              padding: 10px 0;
+            }
+            .feels-like {
+              color: rgba(255, 255, 255, 0.5);
+              font-size: 15px;
+              padding: 15px 0 0 0;
+              margin-left: 8px;
+            }
+          }
+        }
+      }
+    }
+    .otherD {
+      display: none;
+      flex-direction: row;
+      color: #fff;
+      justify-content: center;
+      padding: 0 20px 40px 20px;
+      font-size: 20px;
+      .first {
+        margin: 0 20px;
+        .temp {
+          display: flex;
+          flex-direction: row;
+          p {
+            margin: 0;
+            padding: 10px 0;
+          }
+          .feels-like {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 15px;
+            padding: 15px 0 0 0;
+            margin-left: 8px;
+          }
+        }
+      }
+    }
+    .forecast2 {
+      display: none;
+      flex-direction: row;
+      color: #fff;
+      justify-content: center;
+      padding: 0 20px 40px 20px;
+      font-size: 20px;
+      .second {
+        margin: 0 20px;
+        .temp {
+          display: flex;
+          flex-direction: row;
+          p {
+            margin: 0;
+            padding: 10px 0;
+          }
+          .feels-like {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 15px;
+            padding: 15px 0 0 0;
+            margin-left: 8px;
+          }
+        }
+      }
+    }
+    .forecast3 {
+      display: none;
+      flex-direction: row;
+      color: #fff;
+      justify-content: center;
+      padding: 0 20px 40px 20px;
+      font-size: 20px;
+      .third {
+        margin: 0 20px;
+        .temp {
+          display: flex;
+          flex-direction: row;
+          p {
+            margin: 0;
+            padding: 10px 0;
+          }
+          .feels-like {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 15px;
+            padding: 15px 0 0 0;
+            margin-left: 8px;
+          }
+        }
+      }
+    }
+    .forecast4 {
+      display: none;
+      flex-direction: row;
+      color: #fff;
+      justify-content: center;
+      padding: 0 20px 40px 20px;
+      font-size: 20px;
+      .forth {
+        margin: 0 20px;
+        .temp {
+          display: flex;
+          flex-direction: row;
+          p {
+            margin: 0;
+            padding: 10px 0;
+          }
+          .feels-like {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 15px;
+            padding: 15px 0 0 0;
+            margin-left: 8px;
+          }
+        }
+      }
+    }
+    .forecast5 {
+      display: none;
+      flex-direction: row;
+      color: #fff;
+      justify-content: center;
+      padding: 0 20px 40px 20px;
+      font-size: 20px;
+      .fifth {
+        margin: 0 20px;
+        .temp {
+          display: flex;
+          flex-direction: row;
+          p {
+            margin: 0;
+            padding: 10px 0;
+          }
+          .feels-like {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 15px;
+            padding: 15px 0 0 0;
+            margin-left: 8px;
+          }
+        }
+      }
+    }
+    .forecast6 {
+      display: flex;
+      flex-direction: row;
+      color: #fff;
+      justify-content: center;
+      padding: 0 20px 40px 20px;
+      font-size: 20px;
+      .sixth {
+        margin: 0 20px;
+        .temp {
+          display: flex;
+          flex-direction: row;
+          p {
+            margin: 0;
+            padding: 10px 0;
+          }
+          .feels-like {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 15px;
+            padding: 15px 0 0 0;
+            margin-left: 8px;
+          }
+        }
+      }
+    }
+  }
+}

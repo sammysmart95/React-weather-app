@@ -1,0 +1,28 @@
+.app {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background: url("../images/bg.jpg");
+  background-size: cover;
+  //   background-position: bottom;
+  header {
+    background-color: #153657;
+    padding: 10px 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    h2 {
+      margin: 0;
+      color: #fff;
+    }
+  }
+  main {
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.75));
+    background-size: cover;
+    min-height: 92.9vh;
+    padding: 0 20px;
+    .time {
+      color: #fff;
+    }
+  }
+}

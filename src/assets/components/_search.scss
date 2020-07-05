@@ -1,0 +1,39 @@
+.searchBar {
+  margin: 0;
+  padding: 0;
+  .input {
+    width: 100%;
+    display: block;
+    padding: 8px;
+
+    border: none;
+    outline: none;
+    background: none;
+
+    background-color: #265686;
+    border-radius: 5px;
+
+    color: #fff;
+    font-size: 20px;
+    font-weight: 300;
+
+    transition: 0.4s ease-out;
+    &:focus {
+      box-shadow: 0px 0px 8px 3px #4484c4;
+    }
+    &::placeholder {
+      /* Chrome, Firefox, Opera, Safari 10.1+ */
+      color: #a09d9d;
+    }
+
+    &:-ms-input-placeholder {
+      /* Internet Explorer 10-11 */
+      color: #a09d9d;
+    }
+
+    &::-ms-input-placeholder {
+      /* Microsoft Edge */
+      color: #a09d9d;
+    }
+  }
+}
