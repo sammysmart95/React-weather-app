@@ -8,8 +8,8 @@ const App = () => {
   let key = process.env.REACT_APP_WEATHER_API_KEY;
   let urlkey = `&unit=metric&appid=${key}`;
   let forecastKey = `&appid=${key}`;
-  let base = `http://api.openweathermap.org/data/2.5/weather?q=`;
-  let foreCast = `http://api.openweathermap.org/data/2.5/forecast?q=`;
+  let base = `https://api.openweathermap.org/data/2.5/weather?q=`;
+  let foreCast = `https://api.openweathermap.org/data/2.5/forecast?q=`;
 
   const [searchValue, setSearchValue] = useState("");
   const [weather, setWeather] = useState({
@@ -48,7 +48,7 @@ const App = () => {
     let lon = coordinates[1];
     axios
       .get(
-        `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}` +
+        `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}` +
           forecastKey
       )
       .then(({ data }) => {
@@ -70,7 +70,7 @@ const App = () => {
     let lon = coordinates[1];
     axios
       .get(
-        `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}` +
+        `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}` +
           forecastKey
       )
       .then(({ data }) => {
