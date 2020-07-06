@@ -47,8 +47,6 @@ const Location = ({ results, outcome }) => {
         }
     }, [outcome])
 
-
-
     const chunkArrayInGroups = (arr, size) => {
         let newArr = [];
         var i = 0;
