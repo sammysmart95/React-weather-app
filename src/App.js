@@ -37,8 +37,10 @@ const App = () => {
           });
           setSearchValue("");
         })
-        .catch((error) => {
-          console.log(error);
+        .catch((err) => {
+          window.alert("City can not be found!");
+          // setWeather({ errorMessage: err.message });
+          console.log(err);
         });
     }
   };
@@ -58,8 +60,8 @@ const App = () => {
           });
           setSearchValue("");
         })
-        .catch((error) => {
-          console.log(error);
+        .catch((err) => {
+          console.log(err);
         });
     }
   };
