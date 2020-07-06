@@ -5,13 +5,11 @@ import Time from "./components/Time";
 import axios from "axios";
 
 const App = () => {
-  // console.log(process.env.REACT_APP_WEATHER_API_KEY);
-
   let key = process.env.REACT_APP_WEATHER_API_KEY;
+  let urlkey = `&unit=metric&appid=${key}`;
+  let forecastKey = `&appid=${key}`;
   let base = `http://api.openweathermap.org/data/2.5/weather?q=`;
   let foreCast = `http://api.openweathermap.org/data/2.5/forecast?q=`;
-  let forecastKey = `&appid=${key}`;
-  let urlkey = `&unit=metric&appid=${key}`;
 
   const [searchValue, setSearchValue] = useState("");
   const [weather, setWeather] = useState({
@@ -31,7 +29,6 @@ const App = () => {
         .get(base + searchValue + urlkey)
         .then(({ data }) => {
           let results = data;
-          console.log(results);
           setWeather((prevState) => {
             return {
               ...prevState,
@@ -52,7 +49,7 @@ const App = () => {
         .get(foreCast + searchValue + forecastKey)
         .then(({ data }) => {
           let outcome = data;
-          // console.log(outcome);
+
           setForecast((prevState) => {
             return {
               ...prevState,

@@ -20,7 +20,8 @@ const Forecast = ({ showForecast }) => {
         return dayName
     }
 
-    console.log(showForecast)
+
+
     return (
         <div>
             {showForecast && showForecast.length ? (

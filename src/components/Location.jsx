@@ -47,9 +47,7 @@ const Location = ({ results, outcome }) => {
         }
     }, [outcome])
 
-    useEffect(() => {
-        console.log(state)
-    }, [state])
+
 
     const chunkArrayInGroups = (arr, size) => {
         let newArr = [];
@@ -94,21 +92,19 @@ const Location = ({ results, outcome }) => {
             <div className="future-weather">
                 <div className='future'>
                     {todayForecast && todayForecast.length ? (
-                        <div className='forcast' >
-                            {todayForecast.map((data, index) => (
-                                <div key={index} className='days' onClick={() => setShowForecast(todayForecast)}>
-                                    <div >
-                                        {dayBuilder(new Date(data.dt_txt))} {new Date(data.dt_txt).getDate()}
-                                    </div>
-                                    <div className='temp'>
-                                        <p> <Animate value={Math.round((data.main.temp) - 273)} />&#176;</p>
-                                        <p className='feels-like'> <Animate value={Math.round((data.main.feels_like) - 273)} />&#176;</p>
-                                    </div>
-                                    <div>
-                                        {data.weather[0].main}
-                                    </div>
+                        <div className='forcast' onClick={() => setShowForecast(todayForecast)}>
+                            <div className='days' >
+                                <div >
+                                    {dayBuilder(new Date(todayForecast[0].dt_txt))} {new Date(todayForecast[0].dt_txt).getDate()}
                                 </div>
-                            ))}
+                                <div className='temp'>
+                                    <p> <Animate value={Math.round((todayForecast[0].main.temp) - 273)} />&#176;</p>
+                                    <p className='feels-like'> <Animate value={Math.round((todayForecast[0].main.feels_like) - 273)} />&#176;</p>
+                                </div>
+                                <div>
+                                    {todayForecast[0].weather[0].main}
+                                </div>
+                            </div>
                         </div>
                     ) : (null)}
                     {state && state.length ? (
@@ -132,10 +128,8 @@ const Location = ({ results, outcome }) => {
                         </div>
                     ) : (null)}
                 </div>
-                {/*========= Childern forecast ======*/}
+                {/*========= Child forecast ======*/}
                 <Forecast showForecast={showForecast} />
-
-
             </div>
         </section >
     )

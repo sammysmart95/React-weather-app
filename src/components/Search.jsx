@@ -4,7 +4,7 @@ const Search = ({ handleInput, searchValue, fetchData }) => {
     return (
         <div className="searchBar">
             <input className="input"
-                placeholder='Search by City or Zip Code...'
+                placeholder='Search by City...'
                 onChange={handleInput}
                 value={searchValue}
                 onKeyPress={fetchData}
