@@ -36,7 +36,6 @@
       .weath {
         font-size: 18px;
         font-weight: 400;
-
         margin-top: -50;
       }
     }
@@ -158,6 +157,86 @@
             font-size: 13px;
             padding: 13px 0 0 0;
             margin-left: 8px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .location-weather {
+    .current-weather {
+      .location {
+        .location-name {
+          font-size: 25px;
+        }
+        .location-date {
+          font-size: 13px;
+        }
+      }
+      .weather {
+        .temperature {
+          .temp {
+            font-size: 50px;
+          }
+          .celsius {
+            font-size: 13px;
+            padding: 12px 5px;
+          }
+          .fahrenheit {
+            font-size: 13px;
+            padding: 12px 5px;
+          }
+        }
+        .weath {
+          font-size: 15px;
+        }
+      }
+      .others {
+        .details {
+          margin: 3px 0;
+          font-size: 15px;
+          .text {
+            margin: 5px 8px;
+          }
+        }
+      }
+    }
+    .future-weather {
+      .future {
+        padding: 15px 0 5px;
+        .forcast {
+          margin: 0 5px;
+          padding: 30px 0;
+        }
+        .forecastD {
+          .second {
+            .temp {
+              .feels-like {
+                color: rgba(255, 255, 255, 0.5);
+                font-size: 15px;
+                padding: 13px 0 0 0;
+                margin-left: 3px;
+              }
+            }
+          }
+        }
+      }
+      .forecast2 {
+        padding: 0 0 30px;
+        font-size: 14px;
+        .second {
+          margin: 0 5px;
+          .time {
+            margin-left: -4px;
+          }
+          .temp {
+            .feels-like {
+              font-size: 10px;
+              padding: 14px 0 0 0;
+              margin-left: 3px;
+            }
           }
         }
       }

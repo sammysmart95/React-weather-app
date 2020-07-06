@@ -28,7 +28,7 @@ const Forecast = ({ showForecast }) => {
                 <div className='forecast2'>
                     {showForecast.map((data, index) => (
                         <div key={index} className='second'>
-                            <div className="time">{dayjs(data.dt_txt).format("h a")}</div>
+                            <div className="time">{dayjs(data.dt_txt).format("ha")}</div>
                             <div >
                                 {dayBuilder(new Date(data.dt_txt))} {new Date(data.dt_txt).getDate()}
                             </div>
