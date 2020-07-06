@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Search from "./components/Search";
 import Location from "./components/Location";
 import Time from "./components/Time";
@@ -23,46 +23,118 @@ const App = () => {
     setSearchValue(e.target.value);
   };
 
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition(
+      function (position) {
+        console.log("coordinates");
+        let lat = position.coords.latitude;
+        let long = position.coords.longitude;
+        let coordinates = [lat, long];
+        // console.log(`Latitude: ${lat}, Longitude: ${long}`);
+        getCity(coordinates);
+        getCityForcast(coordinates);
+      },
+
+      function (err) {
+        console.log("coordinates");
+        console.warn(`ERROR(${err.code}): ${err.message}`);
+        console.log("The Locator was denied. :(");
+      }
+    );
+  }, []);
+
+  const getCity = (coordinates) => {
+    let lat = coordinates[0];
+    let lon = coordinates[1];
+    axios
+      .get(
+        `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}` +
+          forecastKey
+      )
+      .then(({ data }) => {
+        let results = data;
+        setWeather((prevState) => {
+          return {
+            ...prevState,
+            results: results,
+          };
+        });
+        setSearchValue("");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  const getCityForcast = (coordinates) => {
+    let lat = coordinates[0];
+    let lon = coordinates[1];
+    axios
+      .get(
+        `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}` +
+          forecastKey
+      )
+      .then(({ data }) => {
+        let outcome = data;
+        setForecast((prevState) => {
+          return {
+            ...prevState,
+            outcome: outcome,
+          };
+        });
+        setSearchValue("");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   const fetchData = (e) => {
     if (e.key === "Enter") {
-      axios
-        .get(base + searchValue + urlkey)
-        .then(({ data }) => {
-          let results = data;
-          setWeather((prevState) => {
-            return {
-              ...prevState,
-              results: results,
-            };
+      if (searchValue === "") {
+        return;
+      } else {
+        axios
+          .get(base + searchValue + urlkey)
+          .then(({ data }) => {
+            let results = data;
+            setWeather((prevState) => {
+              return {
+                ...prevState,
+                results: results,
+              };
+            });
+            setSearchValue("");
+          })
+          .catch((err) => {
+            window.alert("City can not be found!");
+            console.log(err);
           });
-          setSearchValue("");
-        })
-        .catch((err) => {
-          window.alert("City can not be found!");
-          // setWeather({ errorMessage: err.message });
-          console.log(err);
-        });
+      }
     }
   };
 
   const fetchForecast = (e) => {
     if (e.key === "Enter") {
-      axios
-        .get(foreCast + searchValue + forecastKey)
-        .then(({ data }) => {
-          let outcome = data;
+      if (searchValue === "") {
+        return;
+      } else {
+        axios
+          .get(foreCast + searchValue + forecastKey)
+          .then(({ data }) => {
+            let outcome = data;
 
-          setForecast((prevState) => {
-            return {
-              ...prevState,
-              outcome: outcome,
-            };
+            setForecast((prevState) => {
+              return {
+                ...prevState,
+                outcome: outcome,
+              };
+            });
+            setSearchValue("");
+          })
+          .catch((err) => {
+            console.log(err);
           });
-          setSearchValue("");
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+      }
     }
   };
 
