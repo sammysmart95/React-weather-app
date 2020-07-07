@@ -25,7 +25,25 @@
     .time {
       text-align: end;
       color: #fff;
+      // color: #ff0000;
       font-size: 15px;
+    }
+    .comment {
+      // position: fixed;
+      // z-index: 99;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      p {
+        margin: 0;
+        padding: 0;
+      }
+      svg {
+        height: 18px;
+        width: 18px;
+        margin: 0 7px;
+        cursor: pointer;
+      }
     }
   }
 }
@@ -46,6 +64,9 @@
       .time {
         font-size: 15px;
       }
+      // .comment{
+
+      // }
     }
   }
 }

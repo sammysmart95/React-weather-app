@@ -3,6 +3,7 @@ import Search from "./components/Search";
 import Location from "./components/Location";
 import Time from "./components/Time";
 import axios from "axios";
+import Icons from "./assets/images/icons/icon";
 
 const App = () => {
   let key = process.env.REACT_APP_WEATHER_API_KEY;
@@ -162,6 +163,16 @@ const App = () => {
         ) : (
           ""
         )}
+        <div className="comment">
+          <p>Made with</p>
+          <Icons.Love />
+          <a href="https://github.com/sammysmart95">
+            <Icons.Github />
+          </a>
+          <a href="https://www.linkedin.com/in/samuel-smart-adeoye-2a379a163/">
+            <Icons.Linkedin />
+          </a>
+        </div>
       </main>
     </div>
   );
