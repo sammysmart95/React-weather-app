@@ -166,7 +166,7 @@ const App = () => {
         <div className="comment">
           <p>Made with</p>
           <Icons.Love />
-          <a href="https://github.com/sammysmart95">
+          <a href="https://github.com/sammysmart95/React-weather-app">
             <Icons.Github />
           </a>
           <a href="https://www.linkedin.com/in/samuel-smart-adeoye-2a379a163/">
