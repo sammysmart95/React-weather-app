@@ -7,7 +7,10 @@ const Location = ({ results, outcome }) => {
 
     const [todayForecast, setTodatForecast] = useState(null)
     const [state, setState] = useState(null)
-    const [showForecast, setShowForecast] = useState(null);
+    const [showForecast, setShowForecast] = useState({
+        forecast: null,
+        addClassName: false
+    });
 
 
     const dateBuilder = (d) => {
@@ -57,6 +60,17 @@ const Location = ({ results, outcome }) => {
         return newArr;
     }
 
+    // useEffect(() => {
+    // }, [addClassName])
+
+    const onShowForecast = (data, index) => {
+        setShowForecast(prevState => ({
+            ...prevState,
+            forecast: data,
+            addClassName: index
+        }))
+    };
+
     return (
         <section className='location-weather'>
             <div className="current-weather">
@@ -88,10 +102,11 @@ const Location = ({ results, outcome }) => {
                 </div>
             </div>
             <div className="future-weather">
-                <div className='future'>
+                <div className='future' >
                     {todayForecast && todayForecast.length ? (
-                        <div className='forcast' onClick={() => setShowForecast(todayForecast)}>
-                            <div className='days' >
+                        <div className={`forcast ${showForecast.addClassName === todayForecast[0] ? "click" : null} `} onClick={() => onShowForecast(todayForecast, todayForecast[0])}  >
+                            <div className={`days `} >
+                                {/* {console.log(addClassName)} */}
                                 <div >
                                     {dayBuilder(new Date(todayForecast[0].dt_txt))} {new Date(todayForecast[0].dt_txt).getDate()}
                                 </div>
@@ -108,8 +123,8 @@ const Location = ({ results, outcome }) => {
                     {state && state.length ? (
                         <div className='forecastD' >
                             {state.map((data, index) => (
-                                <div key={index} className='forcast' onClick={() => setShowForecast(data)}>
-                                    <div className='second'>
+                                <div key={index} className={`forcast ${showForecast.addClassName === index ? "click" : null}`} onClick={() => onShowForecast(data, index)}>
+                                    <div className={`second `}>
                                         <div >
                                             {dayBuilder(new Date(data[0].dt_txt))} {new Date(data[0].dt_txt).getDate()}
                                         </div>

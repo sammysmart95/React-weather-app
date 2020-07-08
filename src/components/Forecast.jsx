@@ -23,10 +23,10 @@ const Forecast = ({ showForecast }) => {
 
 
     return (
-        <div>
-            {showForecast && showForecast.length ? (
+        <div className='forecast-container'>
+            {showForecast?.forecast && showForecast?.forecast?.length ? (
                 <div className='forecast2'>
-                    {showForecast.map((data, index) => (
+                    {showForecast?.forecast.map((data, index) => (
                         <div key={index} className='second'>
                             <div className="time">{dayjs(data.dt_txt).format("ha")}</div>
                             <div >

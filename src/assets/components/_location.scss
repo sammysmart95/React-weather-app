@@ -88,6 +88,9 @@
           }
         }
       }
+      .click {
+        background-color: rgba(255, 255, 255, 0.2);
+      }
       .forecastD {
         display: flex;
         flex-direction: row;
@@ -136,27 +139,37 @@
         }
       }
     }
-    .forecast2 {
+    .forecast-container {
       display: flex;
-      flex-direction: row;
-      color: #fff;
       justify-content: center;
-      padding: 0 20px 30px 20px;
-      font-size: 15px;
-      .second {
-        margin: 0 20px;
-        .temp {
-          display: flex;
-          flex-direction: row;
-          p {
-            margin: 0;
-            padding: 10px 0;
+      .forecast2 {
+        padding: 0 20px 10px 20px;
+        display: flex;
+        flex-direction: row;
+        color: #fff;
+        justify-content: center;
+        font-size: 15px;
+        background-color: rgba(255, 255, 255, 0.2);
+        border-radius: 10px;
+        .second {
+          padding: 5px 0;
+          margin: 0 20px;
+          .time {
+            margin-left: -8px;
           }
-          .feels-like {
-            color: rgba(255, 255, 255, 0.5);
-            font-size: 13px;
-            padding: 13px 0 0 0;
-            margin-left: 8px;
+          .temp {
+            display: flex;
+            flex-direction: row;
+            p {
+              margin: 0;
+              padding: 10px 0;
+            }
+            .feels-like {
+              color: rgba(255, 255, 255, 0.5);
+              font-size: 13px;
+              padding: 13px 0 0 0;
+              margin-left: 8px;
+            }
           }
         }
       }
@@ -207,7 +220,7 @@
       .future {
         padding: 15px 0 5px;
         .forcast {
-          margin: 0 5px;
+          margin: 0 0 0 5px;
           padding: 30px 0;
         }
         .forecastD {
@@ -223,19 +236,23 @@
           }
         }
       }
-      .forecast2 {
-        padding: 0 0 30px;
-        font-size: 14px;
-        .second {
-          margin: 0 5px;
-          .time {
-            margin-left: -4px;
-          }
-          .temp {
-            .feels-like {
-              font-size: 10px;
-              padding: 14px 0 0 0;
-              margin-left: 3px;
+      .forecast-container {
+        .forecast2 {
+          margin: 0;
+          padding: 0 0 30px;
+          font-size: 12px;
+          .second {
+            padding: 2px 0;
+            margin: 0 5px;
+            .time {
+              margin-left: -4px;
+            }
+            .temp {
+              .feels-like {
+                font-size: 10px;
+                padding: 14px 0 0 0;
+                margin-left: 3px;
+              }
             }
           }
         }
